@@ -65,8 +65,14 @@
                         <li><a class="nav-link" href="{{ route('aboutUs') }}">About</a></li>
                         <li><a class="nav-link" href="{{ route('courses') }}">Courses</a></li>
                         <li><a class="nav-link" href="{{ route('contactUs') }}">Contact us</a></li>
-                        <li><a class="nav-link active" href="{{ route('login') }}"> Login</a></li>
-                        <li><a class="nav-link active" href="{{ route('register') }}">Registration</a></li>
+                        @if (Auth::User())
+                            <li><a class="nav-link" href="{{ route('home') }}">{{ Auth::User()->name }}</a>
+                            </li>
+                        @else
+                            <li><a class="nav-link active" href="{{ route('login') }}"> Login</a></li>
+                            <li><a class="nav-link active" href="{{ route('register') }}">Registration</a></li>
+                        @endif
+
                     </ul>
                 </div>
             </div>
