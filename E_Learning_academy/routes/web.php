@@ -21,6 +21,7 @@ Route::get('/', function () {
     return view('landing');
 })->name('landing');
 
+Route::post('/registration', [App\Http\Controllers\RegistrationController::class, 'create'])->name('registration');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/contactUs', [App\Http\Controllers\LandingController::class, 'contactUs'])->name('contactUs');
 Route::get('/aboutUs', [App\Http\Controllers\LandingController::class, 'aboutUs'])->name('aboutUs');
